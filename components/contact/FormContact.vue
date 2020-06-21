@@ -3,31 +3,45 @@
     <div class="container">
       <h2 class="form-contact__title">CONTÁCTANOS</h2>
 
-      <div class="row">
+      <div class="row mt-lg-5">
         <div class="col-md-7">
           <form action>
             <div class="group">
-              <input id="name" type="text" required />
-              <label for="name">Nombre y Apellidos</label>
+              <input type="text" required="required" class="form-input" />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Nombre y apellidos</label>
             </div>
 
             <div class="group">
-              <input id="phone" type="number" required />
-              <label for="phone">Teléfono</label>
+              <input type="number" min="0" required="required" class="form-input" />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Número de contacto</label>
             </div>
 
             <div class="group">
-              <input id="email" type="email" required />
-              <label for="email">Correo electrónico</label>
+              <input type="email" required="required" class="form-input" />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Correo electrónico</label>
             </div>
 
             <div class="group">
-              <input id="nameCompany" type="text" required />
-              <label for="nameCompany">Nombre de empresa</label>
+              <input type="text" required="required" class="form-input" />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Nombre de empresa</label>
             </div>
 
-            <div class="group">
-              <textarea id="message" required></textarea>
+            <div class="input-container position-relative mb-5">
+              <textarea
+                type="text"
+                id="message"
+                class="form-input"
+                pattern=".+"
+                required
+              ></textarea>
               <label for="message">Mensaje</label>
             </div>
 
@@ -102,56 +116,71 @@ export default {};
   }
 }
 
-.group {
-  position: relative;
-  padding-bottom: 1em;
-  label {
-    position: absolute;
-    pointer-events: none;
-    left: 0.5em;
-    top: 1em;
-    transition: 0.2s ease all;
-    color: $dark;
-  }
-  input[type="text"],
-  input[type="number"],
-  input[type="email"],
-  textarea {
-    background-color: transparent;
-    padding: 0.75em 1.5em;
-    line-height: 1.5em;
-    border: 0;
-    display: block;
-    width: 100%;
-    margin-top: 2em;
-    border-bottom: 1px solid $dark;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0) 96%,
-      $dark 4%
-    );
-    background-position: -100em 0;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    padding-left: 0.5em;
-    transition: 0.3s cubic-bezier(0.64, 0.09, 0.08, 1) all;
-    &:focus,
-    &:valid {
-      background-position: 0 0;
-      ~ label {
-        color: $dark;
-        font-size: 0.875em;
-        top: -0.7em;
-      }
-    }
-    &:focus {
-      outline: none;
-    }
-  }
-}
-
 .icon--form-contact {
   color: $dark;
   font-size: 1.5em;
+}
+
+.group {
+  position: relative;
+  margin: 45px 0;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-input {
+  background: none;
+  color: $dark;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $primary;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+.form-input:focus ~ label,
+.form-input:valid ~ label {
+  top: -14px;
+  font-size: 12px;
+  color: $dark;
+}
+
+.form-input:focus ~ .bar:before {
+  width: 320px;
+}
+
+label {
+  color: $dark;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+}
+
+.bar {
+  position: relative;
+  display: block;
+}
+.bar:before {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+  left: 0%;
 }
 </style>
