@@ -95,9 +95,7 @@
     &__card {
       min-height: 200px;
 
-      -webkit-box-shadow: 10px 10px 8px -10px rgba(0,0,0,0.52);
-      -moz-box-shadow: 10px 10px 8px -10px rgba(0,0,0,0.52);
-      box-shadow: 10px 10px 8px -10px rgba(0,0,0,0.52);
+      box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3);
     }
 
     &__image {

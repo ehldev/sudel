@@ -1,20 +1,20 @@
 <template>
   <div class="main-dropdown">
-    <button class="main-dropdown__main-link bg-white w-100">
+    <nuxt-link :to="{name: 'categoria-slug', params: {slug: title}}" class="main-dropdown__main-link bg-white ml-lg-3 w-100">
       {{ title }}
       <span class="icon ml-2 text-dark">
         <i class="fas fa-chevron-down"></i>
       </span>
-    </button>
+    </nuxt-link>
     <div class="dropdown-content">
-      <nuxt-link v-for="(item, index) in items" :key="index" to="/">{{ item }}</nuxt-link>
+      <nuxt-link v-for="(item, index) in items" :key="index" :to="{name: 'categoria-slug-subslug', params: {slug: parent, subslug: item}}">{{ item }}</nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['title', 'items']
+    props: ['parent', 'title', 'items']
   }
 </script>
 

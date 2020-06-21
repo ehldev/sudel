@@ -47,15 +47,13 @@
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
 
-            <dropdown title="Item 1" :items="['First item', 'First item 2', 'First item 3']"></dropdown>
-
-            <dropdown title="Item 2" :items="['First item', 'First item 2', 'First item 3']"></dropdown>
-
-            <dropdown title="Item 3" :items="['First item', 'First item 2', 'First item 3']"></dropdown>
-
-            <dropdown title="Item 4" :items="['First item', 'First item 2', 'First item 3']"></dropdown>
-
-            <dropdown title="Item 5" :items="['First item', 'First item 2', 'First item 3']"></dropdown>
+            <dropdown
+            v-for="(item, index) in categories"
+            :key="index"
+            :parent="item.name"
+            :title="item.name"
+            :items="item.subCategories">
+            </dropdown>
 
           </b-navbar-nav>
         </b-collapse>
@@ -69,6 +67,44 @@
   import Dropdown from '~/components/Dropdown'
 
   export default {
+    data() {
+        return {
+          categories: [
+            {
+              name: 'Categoría',
+              subCategories: [
+                'Subitem 1',
+                'Subitem 2',
+                'Subitem 3'
+              ]
+            },
+            {
+              name: 'Categoría 2',
+              subCategories: [
+                'Subitem 1',
+                'Subitem 2',
+                'Subitem 3'
+              ]
+            },
+            {
+              name: 'Categoría 3',
+              subCategories: [
+                'Subitem 1',
+                'Subitem 2',
+                'Subitem 3'
+              ]
+            },
+            {
+              name: 'Categoría 4',
+              subCategories: [
+                'Subitem 1',
+                'Subitem 2',
+                'Subitem 3'
+              ]
+            }
+          ]
+        }
+    },
     components: {
       Dropdown
     }
@@ -76,7 +112,11 @@
 </script>
 
 <style lang="scss">
+@import "../scss/variables";
+
 .header {
+  border-bottom: 1px solid rgba($dark, .1);
+  
   &__image-container {
     display: inline-block;
     max-width: 120px;
