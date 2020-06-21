@@ -28,7 +28,7 @@
             </div>
 
             <div class="group">
-              <textarea id="message"></textarea>
+              <textarea id="message" required></textarea>
               <label for="message">Mensaje</label>
             </div>
 

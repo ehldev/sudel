@@ -46,9 +46,6 @@
 
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-form class="mx-auto my-3">
-              <b-form-input size="lg" class="mr-sm-2 w-100" placeholder="¿Qué estás buscando?"></b-form-input>
-            </b-nav-form>
 
             <dropdown title="Item 1" :items="['First item', 'First item 2', 'First item 3']"></dropdown>
 
