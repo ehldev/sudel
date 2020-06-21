@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
+
+@import './variables';
+
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-vue/src/index';
+
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+button,
+input {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.icon {
+  font-size: 1.1em;
+  color: rgba(white, .8);
+
+  &:hover {
+    color: white;
+  }
+}
