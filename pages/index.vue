@@ -57,8 +57,9 @@
     </div>
 
     <!-- Banners de categoría -->
-    <!-- <section>
+    <section>
       <div class="d-md-none">
+        <!--
         <swiper class="swiper" :options="swiperOptionCategories">
           <swiper-slide v-for="(item, index) in categories" :key="index">
             <banner-category :item="item"></banner-category>
@@ -68,13 +69,13 @@
           <div class="swiper-button-next" slot="button-next"></div>
 
           <div class="swiper-pagination" slot="pagination"></div>
-        </swiper>
+        </swiper> -->
       </div>
 
       <div class="d-none d-md-block">
         <banner-category v-for="(item, index) in categories" :key="index" :item="item"></banner-category>
       </div>
-    </section> -->
+    </section>
 
     <!-- Banner contacto -->
     <banner-contact></banner-contact>
