@@ -127,7 +127,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loadCarousel = true
-    }, 2000)
+    }, 3000)
   },
   components: {
     Carousel,
