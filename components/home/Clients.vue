@@ -5,7 +5,8 @@
 
     <!-- Móvil -->
     <div class="d-md-none">
-      <swiper class="swiper" :options="swiperOptionClients">
+      <client-only>
+        <swiper class="swiper" :options="swiperOptionClients">
         <swiper-slide v-for="(client, index) in clients" :key="index">
 
           <div class="card clients__card">
@@ -22,6 +23,7 @@
 
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
+      </client-only>
     </div>
 
     <!-- Desktop -->
@@ -50,7 +52,7 @@
         clients: [
           {
             name: 'SEGURO SOCIAL DE SALUD - ESSALUD',
-            image: 'https://www.suminperu.com/wp-content/uploads/2019/01/ESSALUDLOGO.jpg'
+            image: '/logo-sumin.png'
           },
           {
             name: 'EXIGE INDUSTRIAL S.A.C.',

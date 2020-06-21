@@ -1,6 +1,8 @@
 <template>
   <div>
-    <!-- <carousel v-if="loadCarousel"></carousel> -->
+    <client-only>
+      <carousel v-if="loadCarousel"></carousel>
+    </client-only>
 
     <!-- Detalles -->
     <section class="banner-details d-flex justify-content-center align-items-center bg-warning text-white text-center">
