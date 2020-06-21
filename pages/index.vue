@@ -79,7 +79,7 @@
     <!-- Banner contacto -->
     <banner-contact></banner-contact>
 
-    <!-- <clients></clients> -->
+    <clients></clients>
 
     <form-contact></form-contact>
   </div>
