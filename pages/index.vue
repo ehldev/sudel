@@ -1,8 +1,6 @@
 <template>
   <div>
-    <client-only>
-      <carousel v-if="loadCarousel"></carousel>
-    </client-only>
+    <carousel v-if="loadCarousel"></carousel>
 
     <!-- Detalles -->
     <section class="banner-details d-flex justify-content-center align-items-center bg-warning text-white text-center">
@@ -59,7 +57,7 @@
     </div>
 
     <!-- Banners de categoría -->
-    <section>
+    <!-- <section>
       <div class="d-md-none">
         <swiper class="swiper" :options="swiperOptionCategories">
           <swiper-slide v-for="(item, index) in categories" :key="index">
@@ -76,12 +74,12 @@
       <div class="d-none d-md-block">
         <banner-category v-for="(item, index) in categories" :key="index" :item="item"></banner-category>
       </div>
-    </section>
+    </section> -->
 
     <!-- Banner contacto -->
     <banner-contact></banner-contact>
 
-    <clients></clients>
+    <!-- <clients></clients> -->
 
     <form-contact></form-contact>
   </div>
@@ -129,7 +127,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loadCarousel = true
-    }, 3000)
+    }, 1500)
   },
   components: {
     Carousel,
