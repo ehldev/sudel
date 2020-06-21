@@ -1,6 +1,7 @@
 <template>
   <div class="slide">
-    <swiper class="swiper" :options="swiperOption">
+    <client-only>
+      <swiper class="swiper" :options="swiperOption">
       <swiper-slide v-for="(item, index) in items" :key="index">
         <div class="slide__container bg-dark">
           <div class="slide__col1 d-flex justify-content-center">
@@ -21,6 +22,7 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
+    </client-only>
   </div>
 </template>
 

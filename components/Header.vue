@@ -33,7 +33,7 @@
 
       <div class="container">
         <nuxt-link to="/" class="header__image-container">
-          <img src="https://www.suminperu.com/wp-content/uploads/2018/11/sumin.png" alt="Logo Sudel" class="header__image">
+          <img src="/logo-sumin.png" alt="Logo Sudel" class="header__image">
         </nuxt-link>
 
         <b-navbar-toggle target="nav-collapse" class="text-dark">
