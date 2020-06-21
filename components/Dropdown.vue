@@ -41,6 +41,7 @@
     width: 100%;
     display: none;
     position: absolute;
+    top: 100%;
     background-color: #f1f1f1;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 100;

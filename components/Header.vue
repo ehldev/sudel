@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <b-navbar toggleable="lg" type="white" class="py-4 bg-white">
+    <b-navbar toggleable="lg" type="white" class="bg-white py-3">
 
       <div class="container">
         <nuxt-link to="/" class="header__image-container">

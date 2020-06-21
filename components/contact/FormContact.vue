@@ -4,26 +4,25 @@
       <h2 class="form-contact__title">CONTÁCTANOS</h2>
 
       <div class="row">
-
         <div class="col-md-7">
-          <form action="">
+          <form action>
             <div class="group">
-              <input id="name" type="text" required>
+              <input id="name" type="text" required />
               <label for="name">Nombre y Apellidos</label>
             </div>
 
             <div class="group">
-              <input id="phone" type="number" required>
+              <input id="phone" type="number" required />
               <label for="phone">Teléfono</label>
             </div>
 
             <div class="group">
-              <input id="email" type="email" required>
+              <input id="email" type="email" required />
               <label for="email">Correo electrónico</label>
             </div>
 
             <div class="group">
-              <input id="nameCompany" type="text" required>
+              <input id="nameCompany" type="text" required />
               <label for="nameCompany">Nombre de empresa</label>
             </div>
 
@@ -33,7 +32,7 @@
             </div>
 
             <div class="form-group text-right mt-3">
-              <input type="submit" class="btn btn-lg btn-danger" value="ENVIAR">
+              <input type="submit" class="btn btn-lg btn-danger" value="ENVIAR" />
             </div>
           </form>
         </div>
@@ -66,13 +65,11 @@
 </template>
 
 <script>
-  export default {
-
-  }
+export default {};
 </script>
 
 <style lang="scss">
-  @import "../../scss/variables";
+@import "../../scss/variables";
 
 .form-contact {
   padding: 5rem 0;
@@ -116,10 +113,10 @@
     transition: 0.2s ease all;
     color: $dark;
   }
-  input[type=text],
-  input[type=number],
-  input[type=email],
-  textarea{
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  textarea {
     background-color: transparent;
     padding: 0.75em 1.5em;
     line-height: 1.5em;
@@ -128,19 +125,23 @@
     width: 100%;
     margin-top: 2em;
     border-bottom: 1px solid $dark;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, $dark 4%);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 96%,
+      $dark 4%
+    );
     background-position: -100em 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     padding-left: 0.5em;
-    transition: 0.3s cubic-bezier(.64,.09,.08,1) all;
+    transition: 0.3s cubic-bezier(0.64, 0.09, 0.08, 1) all;
     &:focus,
     &:valid {
       background-position: 0 0;
       ~ label {
         color: $dark;
         font-size: 0.875em;
-        top: -.7em;
+        top: -0.7em;
       }
     }
     &:focus {
@@ -149,8 +150,8 @@
   }
 }
 
-  .icon--form-contact {
-    color: $dark;
-    font-size: 1.5em;
-  }
+.icon--form-contact {
+  color: $dark;
+  font-size: 1.5em;
+}
 </style>

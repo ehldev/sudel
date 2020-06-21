@@ -46,7 +46,7 @@
   @import "../../scss/variables";
 
 .slide {
-  margin-top: 10em;
+  margin-top: 9em;
 
   &__container {
     width: 100%;
