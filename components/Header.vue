@@ -33,7 +33,7 @@
 
       <div class="container">
         <nuxt-link to="/" class="header__image-container">
-          <img src="/logo-sumin.png" alt="Logo Sudel" class="header__image">
+          <img src="https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png" alt="Logo Sudel" class="header__image">
         </nuxt-link>
 
         <b-navbar-toggle target="nav-collapse" class="text-dark">
@@ -123,7 +123,7 @@
   }
 
   &__image {
-    max-width: 100%;
+    max-width: 80%;
   }
 }
 </style>

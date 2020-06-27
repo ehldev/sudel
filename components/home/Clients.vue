@@ -34,7 +34,7 @@
           <div class="card-body d-flex flex-column justify-content-center align-items-center">
             <img :src="client.image" alt="" class="clients__image">
 
-            <p class="clients__description text-dark">
+            <p class="clients__description text-dark mt-2">
               {{ client.name }}
             </p>
           </div>
@@ -56,23 +56,23 @@
           },
           {
             name: 'EXIGE INDUSTRIAL S.A.C.',
-            image: 'https://www.suminperu.com/wp-content/uploads/2019/01/ESSALUDLOGO.jpg'
+            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
           },
           {
             name: 'IBT GROUP',
-            image: 'https://www.suminperu.com/wp-content/uploads/2019/01/ESSALUDLOGO.jpg'
+            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
           },
           {
             name: 'IBERICA DE MANTENIMIENTO S.A.',
-            image: 'https://www.suminperu.com/wp-content/uploads/2019/01/ESSALUDLOGO.jpg'
+            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
           },
           {
             name: 'TACTICAL IT S.A.C.',
-            image: 'https://www.suminperu.com/wp-content/uploads/2019/01/ESSALUDLOGO.jpg'
+            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
           },
           {
             name: 'TERMOENCOGIBLES DEL PERU S.A.',
-            image: 'https://www.suminperu.com/wp-content/uploads/2019/01/ESSALUDLOGO.jpg'
+            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
           }
         ],
         swiperOptionClients: {
@@ -112,7 +112,7 @@
     }
 
     &__description {
-      font-size: 1.1em;
+      font-size: 1em;
     }
   }
 </style>

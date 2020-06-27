@@ -3,12 +3,12 @@
     <client-only>
       <swiper class="swiper" :options="swiperOption">
       <swiper-slide v-for="(item, index) in items" :key="index">
-        <div class="slide__container bg-dark">
+        <div class="slide__container">
           <div class="slide__col1 d-flex justify-content-center">
             <div class="slide__content text-white px-5 py-md-5 py-lg-0 d-flex flex-column justify-content-center h-100">
               <h3 class="slide__subtitle">SOMOS UN SERVICIO COMPLETO</h3>
 
-              <h2 class="slide__title">SUMINISTROS INDUSTRIALES</h2>
+              <h2 class="slide__title ml-0">SUMINISTROS INDUSTRIALES</h2>
 
               <nuxt-link to="/" class="btn btn-outline-primary rounded-0 align-self-start mt-3">CONTÁCTANOS</nuxt-link>
             </div>
@@ -49,8 +49,9 @@
   margin-top: 9em;
 
   &__container {
+    background-color: rgba($dark, .95);
     width: 100%;
-    height: 75vh;
+    height: 77vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -102,10 +103,6 @@
   &__title {
     font-size: 1.5em;
     font-weight: 800;
-
-    @media (min-width: 768px) {
-      font-size: 3em;
-    }
   }
 
   &__subtitle {

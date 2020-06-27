@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="form-contact__title">CONTÁCTANOS</h2>
 
-      <div class="row mt-lg-5">
+      <div class="row mt-lg-1">
         <div class="col-md-7">
           <form action>
             <div class="group">
