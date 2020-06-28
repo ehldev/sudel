@@ -1,0 +1,17 @@
+{
+  sliders {
+    edges {
+      node {
+        id
+        title
+        content
+        imagendestacada{
+          imagen{
+            altText
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+}

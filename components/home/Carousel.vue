@@ -1,21 +1,21 @@
 <template>
-  <div class="slide">
+  <div class="slide" v-if="sliders">
     <client-only>
       <swiper class="swiper" :options="swiperOption">
       <swiper-slide v-for="(item, index) in items" :key="index">
         <div class="slide__container">
           <div class="slide__col1 d-flex justify-content-center">
             <div class="slide__content text-white px-5 py-md-5 py-lg-0 d-flex flex-column justify-content-center h-100">
-              <h3 class="slide__subtitle">SOMOS UN SERVICIO COMPLETO</h3>
+              <div class="slide__subtitle" v-html="item.node.content"></div>
 
-              <h2 class="slide__title ml-0">SUMINISTROS INDUSTRIALES</h2>
+              <h2 class="slide__title ml-0">{{ item.node.title }}</h2>
 
               <nuxt-link to="/" class="btn btn-outline-primary rounded-0 align-self-start mt-3">CONTÁCTANOS</nuxt-link>
             </div>
           </div>
 
           <div class="slide__col2 position-relative">
-            <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE2uCzt?ver=eb50&q=90&m=2&h=768&w=1024&b=%23FFFFFFFF&aim=true" alt="" class="slide__image">
+            <img :src="item.node.imagendestacada.imagen.sourceUrl" :alt="item.node.imagendestacada.imagen.altText" class="slide__image">
           </div>
         </div>
       </swiper-slide>
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+  import sliders from '@/apollo/queries/sliders'
+
   export default {
     data() {
       return {
@@ -35,8 +37,19 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
           }
-        },
-        items: 3
+        }
+      }
+    },
+    apollo: {
+      sliders: {
+        query: sliders
+      }
+    },
+    computed: {
+      items: function () {
+        if(this.sliders) {
+          return this.sliders.edges
+        }
       }
     }
   }
@@ -87,6 +100,8 @@
 
   &__content {
     margin: 0 auto;
+    position: relative;
+    z-index: 1000;
 
     @media (min-width: 768px) {
       width: 80%;
@@ -103,10 +118,17 @@
   &__title {
     font-size: 1.5em;
     font-weight: 800;
+
+    @media (min-width: 768px) {
+      font-size: 2.3em;
+    }
   }
 
   &__subtitle {
-    font-size: 1.1em;
+    h2,
+    h3 {
+      font-size: 1.1em !important; // Para cambiar el tamaño de Wordpress
+    }
   }
 }
 

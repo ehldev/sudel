@@ -1,0 +1,26 @@
+{
+  page(id: "cGFnZTo1Mg==", idType: ID) {
+    id
+    title
+    inicio {
+      numero1
+      titulo1
+      numero2
+      titulo2
+      numero3
+      titulo3
+      descripcionMision
+      iconoMision
+      descripcionVision
+      iconoVision
+      fondo1{
+        altText
+        sourceUrl
+      }
+      fondo2{
+        altText
+        sourceUrl
+      }
+    }
+  }
+}

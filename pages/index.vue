@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="page">
     <carousel v-if="loadCarousel"></carousel>
 
     <!-- Detalles -->
@@ -7,18 +7,18 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-3 banner-details__item mb-3 mb-md-0">
-            <h3 class="banner-details__title">70</h3>
-            <span class="lead font-weight-bold text-dark">PROYECTOS</span>
+            <h3 class="banner-details__title">{{ page.inicio.numero1 }}</h3>
+            <span class="lead font-weight-bold text-dark">{{ page.inicio.titulo1 }}</span>
           </div>
 
           <div class="col-md-3 banner-details__item mb-3 mb-md-0">
-            <h3 class="banner-details__title">70</h3>
-            <span class="lead font-weight-bold text-dark">CLIENTES SATISFECHOS</span>
+            <h3 class="banner-details__title">{{ page.inicio.numero2 }}</h3>
+            <span class="lead font-weight-bold text-dark">{{ page.inicio.titulo2 }}</span>
           </div>
 
           <div class="col-md-3 banner-details__item mb-3 mb-md-0">
-            <h3 class="banner-details__title">70</h3>
-            <span class="lead font-weight-bold text-dark">PROYECTOS EN MARCHA</span>
+            <h3 class="banner-details__title">{{ page.inicio.numero3 }}</h3>
+            <span class="lead font-weight-bold text-dark">{{ page.inicio.titulo3 }}</span>
           </div>
         </div>
       </div>
@@ -31,12 +31,12 @@
         <div class="col-md-5">
           <div>
             <span class="icon icon--mission text-dark">
-              <i class="fas fa-handshake"></i>
+              <i :class="page.inicio.iconoVision"></i>
             </span>
 
             <h3>VISIÓN</h3>
             <p>
-              Ser el socio estrategico en el abastecimiento de suministros industriales de las empresas peruanas.
+              {{ page.inicio.descripcionVision }}
             </p>
           </div>
         </div>
@@ -44,12 +44,12 @@
         <div class="col-md-5">
           <div>
             <span class="icon icon--mission text-dark">
-              <i class="fas fa-handshake"></i>
+              <i :class="page.inicio.iconoMision"></i>
             </span>
 
             <h3>MISIÓN</h3>
             <p>
-              Brindar un servicio de calidad, comprometiendonos a lograr sus objetivos.
+              {{ page.inicio.descripcionMision }}
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Banners de categoría -->
-    <section>
+    <section v-if="productCategories">
       <div class="d-md-none" v-if="loadCarousel">
         <swiper class="swiper" :options="swiperOptionCategories">
           <swiper-slide v-for="(item, index) in categories" :key="index">
@@ -76,12 +76,9 @@
       </div>
     </section>
 
-    <!-- Banner contacto -->
-    <banner-contact></banner-contact>
-
     <clients></clients>
 
-    <form-contact></form-contact>
+    <form-contact :bgBanner="page.inicio.fondo1.sourceUrl"></form-contact>
   </div>
 </template>
 
@@ -89,27 +86,16 @@
 import Carousel from '@/components/home/Carousel'
 import BannerCategory from '@/components/home/BannerCategory'
 import Clients from '@/components/home/Clients'
-import BannerContact from '@/components/contact/BannerContact'
 import FormContact from '@/components/contact/FormContact'
+
+// Queries
+import page from '@/apollo/queries/page'
+import productCategories from '@/apollo/queries/productCategories'
 
 export default {
   data() {
     return {
       loadCarousel: false,
-      categories: [
-        {
-          image: 'https://d2qc4bb64nav1a.cloudfront.net/cdn/13/images/20141229094337oeynuf.jpg'
-        },
-        {
-          image: 'https://cdn.pixabay.com/photo/2020/03/12/07/55/city-4924252_960_720.jpg'
-        },
-        {
-          image: 'https://d2qc4bb64nav1a.cloudfront.net/cdn/13/images/20141229094337oeynuf.jpg'
-        },
-        {
-          image: 'https://cdn.pixabay.com/photo/2020/03/12/07/55/city-4924252_960_720.jpg'
-        }
-      ],
       swiperOptionCategories: {
         slidesPerView: 1,
         freeMode: true,
@@ -129,12 +115,28 @@ export default {
       this.loadCarousel = true
     }, 1000)
   },
+  apollo: {
+    productCategories: {
+      prefetch: true,
+      query: productCategories
+    },
+    page: {
+      prefetch: true,
+      query: page
+    }
+  },
   components: {
     Carousel,
     BannerCategory,
-    BannerContact,
     Clients,
     FormContact
+  },
+  computed: {
+    categories: function () {
+      if(this.productCategories) {
+        return this.productCategories.edges
+      }
+    }
   }
 }
 </script>

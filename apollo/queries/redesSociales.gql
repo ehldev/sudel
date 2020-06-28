@@ -1,0 +1,19 @@
+{
+  redesSociales {
+    edges {
+      node {
+        id
+        title
+        content
+        sociales{
+          whatsapp
+          facebook
+          direccion
+          celular
+          correo
+          telefono
+        }
+      }
+    }
+  }
+}

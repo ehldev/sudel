@@ -1,0 +1,17 @@
+{
+  clientes {
+    edges {
+      node {
+        id
+        title
+        content
+        cliente{
+          imagen{
+            altText
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+}

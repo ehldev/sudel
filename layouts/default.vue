@@ -1,9 +1,9 @@
 <template>
   <div>
-    <header-app></header-app>
+    <header-app :info="redesSociales.edges[0].node.sociales"></header-app>
     <nuxt />
 
-    <whatsapp></whatsapp>
+    <whatsapp :info="redesSociales.edges[0].node.sociales"></whatsapp>
   </div>
 </template>
 
@@ -11,7 +11,16 @@
   import HeaderApp from '~/components/Header'
   import Whatsapp from '~/components/Whatsapp'
 
+  // Queries
+  import redesSociales from '@/apollo/queries/redesSociales'
+
   export default {
+    apollo: {
+      redesSociales: {
+        prefetch: true,
+        query: redesSociales
+      }
+    },
     components: {
       HeaderApp,
       Whatsapp

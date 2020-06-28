@@ -1,49 +1,26 @@
 <template>
   <div
-    v-bind:style="{backgroundImage: 'url(' + item.image + ')'}"
-    class="banner-category text-center text-white">
+    v-bind:style="{backgroundImage: 'url(' + item.node.image.sourceUrl + ')'}"
+    class="banner-category text-center text-white" v-if="item">
     <div class="banner-category__bg-dark">
       <div class="container">
-        <h2 class="banner-category__title mb-1 mb-md-3">ELECTRICIDAD INDUSTRIAL</h2>
+        <h2 class="banner-category__title mb-1 mb-md-3">{{ item.node.name }}</h2>
 
         <div class="row justify-content-center mb-3">
           <div class="col-md-10">
-            <p class="banner-category__description">
-              SUMIN hace que tus trabajos de electricidad generen una corriente de calidad con equipos y accesorios seguros para tu proyecto. Representamos las mejores marcas del mercado.
+            <p class="banner-category__description" v-html="item.node.description">
             </p>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-4 mb-2 mb-md-0">
-            <a href="" class="btn btn-outline-success px-3">
-              RESIDENCIAL
+        <div class="text-center">
+          <router-link :to="{name: 'categoria-slug', params: {slug: item.node.slug}}" class="btn btn-outline-success px-3">
+            Ver más
 
-              <span class="icon icon--opacity">
+            <span class="icon icon--opacity">
                 <i class="fas fa-chevron-right"></i>
               </span>
-            </a>
-          </div>
-
-          <div class="col-md-4 mb-2 mb-md-0">
-            <a href="" class="btn btn-outline-success px-3">
-              RESIDENCIAL
-
-              <span class="icon icon--opacity">
-                <i class="fas fa-chevron-right"></i>
-              </span>
-            </a>
-          </div>
-
-          <div class="col-md-4 mb-2 mb-md-0">
-            <a href="" class="btn btn-outline-success px-3">
-              RESIDENCIAL
-
-              <span class="icon icon--opacity">
-                <i class="fas fa-chevron-right"></i>
-              </span>
-            </a>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>

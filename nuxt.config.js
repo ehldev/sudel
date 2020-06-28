@@ -48,7 +48,13 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
+    '@nuxtjs/apollo'
   ],
+  apollo: {
+    clientConfigs: {
+      default: '@/plugins/apolloConfig.js'
+    }
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/

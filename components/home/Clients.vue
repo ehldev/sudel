@@ -1,5 +1,5 @@
 <template>
-  <div class="container clients text-center">
+  <div class="container clients text-center" v-if="clientes">
 
     <h2 class="clients__title mb-5">NUESTROS CLIENTES</h2>
 
@@ -9,12 +9,16 @@
         <swiper class="swiper" :options="swiperOptionClients">
         <swiper-slide v-for="(client, index) in clients" :key="index">
 
+          <pre>
+            {{ client }}
+          </pre>
+
           <div class="card clients__card">
             <div class="card-body d-flex flex-column justify-content-center align-items-center">
-              <img :src="client.image" alt="" class="clients__image">
+              <img :src="client.node.cliente.imagen.sourceUrl" :alt="client.node.cliente.imagen.altText" class="clients__image">
 
               <p class="clients__description text-dark">
-                {{ client.name }}
+                {{ client }}
               </p>
             </div>
           </div>
@@ -32,11 +36,12 @@
 
         <div class="card clients__card border-0">
           <div class="card-body d-flex flex-column justify-content-center align-items-center">
-            <img :src="client.image" alt="" class="clients__image">
+            <img :src="client.node.cliente.imagen.sourceUrl" :alt="client.node.cliente.imagen.altText" class="clients__image">
 
-            <p class="clients__description text-dark mt-2">
-              {{ client.name }}
+            <p class="clients__title mt-2">
+              {{ client.node.title }}
             </p>
+
           </div>
         </div>
 
@@ -46,35 +51,12 @@
 </template>
 
 <script>
+  // Queries
+  import clientes from '@/apollo/queries/clientes'
+
   export default {
     data() {
       return {
-        clients: [
-          {
-            name: 'SEGURO SOCIAL DE SALUD - ESSALUD',
-            image: '/logo-sumin.png'
-          },
-          {
-            name: 'EXIGE INDUSTRIAL S.A.C.',
-            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
-          },
-          {
-            name: 'IBT GROUP',
-            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
-          },
-          {
-            name: 'IBERICA DE MANTENIMIENTO S.A.',
-            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
-          },
-          {
-            name: 'TACTICAL IT S.A.C.',
-            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
-          },
-          {
-            name: 'TERMOENCOGIBLES DEL PERU S.A.',
-            image: 'https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png'
-          }
-        ],
         swiperOptionClients: {
           slidesPerView: 1,
           freeMode: true,
@@ -82,6 +64,19 @@
             el: '.swiper-pagination',
             clickable: true
           }
+        }
+      }
+    },
+    apollo: {
+      clientes: {
+        query: clientes,
+        fetchPolicy: 'no-cache'
+      }
+    },
+    computed: {
+      clients: function () {
+        if(this.clientes) {
+          return this.clientes.edges
         }
       }
     }
@@ -103,16 +98,9 @@
     }
 
     &__title {
-      font-size: 1.5em;
+      font-size: 1.2em;
       font-weight: 800;
-
-      @media (min-width: 1024px) {
-        font-size: 2.5em;
-      }
-    }
-
-    &__description {
-      font-size: 1em;
+      color: rgba(#070606, .9);
     }
   }
 </style>

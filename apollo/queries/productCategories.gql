@@ -1,0 +1,16 @@
+{
+  productCategories {
+    edges {
+      node {
+        id
+        name
+        description
+        slug
+        image{
+          altText
+          sourceUrl
+        }
+      }
+    }
+  }
+}

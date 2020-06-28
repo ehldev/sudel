@@ -1,0 +1,17 @@
+{
+  productCategory(id: "Ferreteria", idType: SLUG) {
+    products {
+      nodes {
+ ... on SimpleProduct {
+      id
+      name
+      description
+      image{
+        altText
+        sourceUrl
+      }
+    }
+      }
+    }
+  }
+}

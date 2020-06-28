@@ -7,23 +7,23 @@
           <div class="d-flex flex-column flex-md-row">
             <span class="mr-3 mb-1 mb-md-0">
               <i class="fas fa-phone-alt"></i>
-              + 51 991 778 266 / (01) 7575898
+              {{ info.telefono }} - {{ info.celular }}
             </span>
 
             <span class="mr-3">
               <i class="fas fa-envelope"></i>
-              <a href="" class="text-white">ventas@suminperu.com</a>
+              <a :href="`mailto:${info.correo}`" class="text-white">{{ info.correo }}</a>
             </span>
           </div>
 
           <div class="mt-1 mt-md-0">
-            <nuxt-link to="/" class="icon mr-2">
+            <a :href="info.facebook" target="_blank" class="text-white header__icon mr-1">
               <i class="fab fa-facebook-f"></i>
-            </nuxt-link>
+            </a>
 
-            <nuxt-link to="/" class="icon">
+            <a :href="info.whatsapp" target="_blank" class="text-white header__icon">
               <i class="fab fa-whatsapp"></i>
-            </nuxt-link>
+            </a>
           </div>
         </div>
       </div>
@@ -47,13 +47,16 @@
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
 
-            <dropdown
+            <nuxt-link class="header__link ml-3" to="/">Inicio</nuxt-link>
+            <nuxt-link class="header__link ml-3" v-for="(item, index) in categories" :key="index" :to="{name: 'categoria-slug', params: {slug: item.node.slug}}">{{ item.node.name }}</nuxt-link>
+
+            <!--<dropdown
             v-for="(item, index) in categories"
             :key="index"
             :parent="item.name"
             :title="item.name"
             :items="item.subCategories">
-            </dropdown>
+            </dropdown>-->
 
           </b-navbar-nav>
         </b-collapse>
@@ -66,47 +69,32 @@
 <script>
   import Dropdown from '~/components/Dropdown'
 
+  // Queries
+  import productCategories from '@/apollo/queries/productCategories'
+
   export default {
     data() {
         return {
-          categories: [
-            {
-              name: 'Categoría',
-              subCategories: [
-                'Subitem 1',
-                'Subitem 2',
-                'Subitem 3'
-              ]
-            },
-            {
-              name: 'Categoría 2',
-              subCategories: [
-                'Subitem 1',
-                'Subitem 2',
-                'Subitem 3'
-              ]
-            },
-            {
-              name: 'Categoría 3',
-              subCategories: [
-                'Subitem 1',
-                'Subitem 2',
-                'Subitem 3'
-              ]
-            },
-            {
-              name: 'Categoría 4',
-              subCategories: [
-                'Subitem 1',
-                'Subitem 2',
-                'Subitem 3'
-              ]
-            }
-          ]
         }
+    },
+    mounted() {
+      $nuxt.$emit('whatsappNumber', this.info)
+    },
+    props: ['info'],
+    apollo: {
+      productCategories: {
+        query: productCategories
+      }
     },
     components: {
       Dropdown
+    },
+    computed: {
+      categories: function () {
+        if(this.productCategories) {
+          return this.productCategories.edges
+        }
+      }
     }
   }
 </script>
@@ -116,7 +104,7 @@
 
 .header {
   border-bottom: 1px solid rgba($dark, .1);
-  
+
   &__image-container {
     display: inline-block;
     max-width: 120px;
@@ -124,6 +112,19 @@
 
   &__image {
     max-width: 80%;
+  }
+
+  &__icon {
+    font-size: 1.2em;
+  }
+
+  &__link {
+    font-size: 1.1em;
+    color: #070606;
+
+    &.nuxt-link-exact-active.nuxt-link-active {
+      color: #0c9b93;
+    }
   }
 }
 </style>

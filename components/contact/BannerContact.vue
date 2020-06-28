@@ -1,5 +1,5 @@
 <template>
-  <section class="banner-contact text-white">
+  <section class="banner-contact text-white" v-bind:style="{ backgroundImage: 'url(' + bg + ')' }">
     <div class="banner-contact__bg-dark">
       <div class="container">
         <div class="row align-items-center">
@@ -17,9 +17,9 @@
 
             <p class="lead text-warning">Estaremos gustosos de atenderte.</p>
 
-            <button class="btn btn-success">
+            <a :href="`https://api.whatsapp.com/send?phone=+51${info.whatsapp}`" target="_blank" class="btn btn-success">
               <i class="fab fa-whatsapp"></i>
-              Contacta con un asesor vía Whatsapp</button>
+              Contacta con un asesor vía Whatsapp</a>
           </div>
         </div>
       </div>
@@ -29,7 +29,11 @@
 
 <script>
   export default {
-
+    data() {
+      return {
+      }
+    },
+    props: ['info', 'bg']
   }
 </script>
 
@@ -37,7 +41,6 @@
   @import "../../scss/variables";
 
 .banner-contact {
-  background-image: url("https://d2qc4bb64nav1a.cloudfront.net/cdn/13/images/20141229094337oeynuf.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
