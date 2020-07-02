@@ -120,11 +120,13 @@ export default {
   apollo: {
     productCategories: {
       prefetch: true,
-      query: productCategories
+      query: productCategories,
+      fetchPolicy: 'cache-and-network'
     },
     page: {
       prefetch: true,
-      query: page
+      query: page,
+      fetchPolicy: 'cache-and-network'
     }
   },
   head() {
