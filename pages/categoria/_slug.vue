@@ -32,6 +32,8 @@
 </template>
 
 <script>
+  import { appConfig  } from '@/env'
+
   import FormContact from '@/components/contact/FormContact'
 
   // Queries
@@ -60,6 +62,36 @@
       redesSociales: {
         prefetch: true,
         query: redesSociales
+      }
+    },
+    head() {
+      let title = this.slug.replace(/-/g, ' '),
+      description = `Sudel categoría ${this.slug.replace(/-/g, ' ')}`,
+      appUrl = `${appConfig.urlOficial}/categorias/${this.slug}`
+
+      return {
+        title: `Sudel - Categoría ${title}`,
+        meta: [
+          /* Facebook */
+          {property: 'og:image', content: appConfig.logo },
+          {property: 'og:url', content: `${appUrl}`},
+          {property: 'og:title', content: title},
+          {property: 'og:site_name', content: title},
+          {property: 'og:description', content: description},
+
+          /* Whatsapp */
+          {property: 'og:image', content: appConfig.logo },
+          {property: 'og:url', content: `${appUrl}`},
+          {property: 'og:title', content: title},
+          {property: 'og:site_name', content: title},
+          {property: 'og:description', content: description},
+
+          /* Twitter */
+          {name: 'twitter:url', content: `${appUrl}`},
+          {name: 'twitter:image', content: appConfig.logo },
+          {name: 'twitter:title', content: title},
+          {name: 'twitter:description', content: description},
+        ]
       }
     },
     components: {

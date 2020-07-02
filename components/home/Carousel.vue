@@ -70,6 +70,13 @@
     grid-template-rows: 1fr 1fr;
 
     @media (min-width: 1024px) {
+      height: 50vh;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    @media (min-width: 1200px) {
+      height: 80vh;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
     }

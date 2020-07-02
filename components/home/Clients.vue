@@ -91,10 +91,19 @@
       min-height: 200px;
 
       box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3);
+
+      &:hover img {
+        transform: scale(0.82);
+      }
     }
 
     &__image {
       width: 30%;
+
+      transform: scale(0.9);
+
+      transition: transform .5s;
+
     }
 
     &__title {

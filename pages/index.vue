@@ -29,12 +29,12 @@
     <div class="container py-5 mission">
       <div class="row justify-content-center text-center">
         <div class="col-md-5">
-          <div>
+          <div class="mission__content">
             <span class="icon icon--mission text-dark">
               <i :class="page.inicio.iconoVision"></i>
             </span>
 
-            <h3>VISIÓN</h3>
+            <h3 class="font-weight-bold">VISIÓN</h3>
             <p>
               {{ page.inicio.descripcionVision }}
             </p>
@@ -42,12 +42,12 @@
         </div>
 
         <div class="col-md-5">
-          <div>
+          <div class="mission__content">
             <span class="icon icon--mission text-dark">
               <i :class="page.inicio.iconoMision"></i>
             </span>
 
-            <h3>MISIÓN</h3>
+            <h3 class="font-weight-bold">MISIÓN</h3>
             <p>
               {{ page.inicio.descripcionMision }}
             </p>
@@ -83,6 +83,8 @@
 </template>
 
 <script>
+import { appConfig } from '@/env'
+
 import Carousel from '@/components/home/Carousel'
 import BannerCategory from '@/components/home/BannerCategory'
 import Clients from '@/components/home/Clients'
@@ -123,6 +125,39 @@ export default {
     page: {
       prefetch: true,
       query: page
+    }
+  },
+  head() {
+      let title = 'Sudel',
+      description = `Sudel`,
+      appUrl = appConfig.urlOficial
+
+      if(this.page) {
+        description = this.page.inicio.descripcionVision
+      }
+
+    return {
+      meta: [
+        /* Facebook */
+        {property: 'og:image', content: appConfig.logo },
+        {property: 'og:url', content: `${appUrl}`},
+        {property: 'og:title', content: title},
+        {property: 'og:site_name', content: title},
+        {property: 'og:description', content: description},
+
+        /* Whatsapp */
+        {property: 'og:image', content: appConfig.logo },
+        {property: 'og:url', content: `${appUrl}`},
+        {property: 'og:title', content: title},
+        {property: 'og:site_name', content: title},
+        {property: 'og:description', content: description},
+
+        /* Twitter */
+        {name: 'twitter:url', content: `${appUrl}`},
+        {name: 'twitter:image', content: appConfig.logo },
+        {name: 'twitter:title', content: title},
+        {name: 'twitter:description', content: description},
+      ]
     }
   },
   components: {
@@ -175,7 +210,17 @@ export default {
     }
   }
 
-  .icon--mission {
-    font-size: 3em;
+  .mission__content {
+    &:hover .icon--mission {
+      transform: scale(0.8);
+    }
   }
+
+ .icon--mission {
+    display: inline-block;
+    font-size: 3em;
+    transform: scale(0.9);
+    transition: transform .5s;
+  }
+
 </style>

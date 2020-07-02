@@ -45,10 +45,10 @@
         <b-collapse id="nav-collapse" is-nav>
 
           <!-- Right aligned nav items -->
-          <b-navbar-nav class="ml-auto">
+          <b-navbar-nav class="ml-auto text-center">
 
-            <nuxt-link class="header__link ml-3" to="/">Inicio</nuxt-link>
-            <nuxt-link class="header__link ml-3" v-for="(item, index) in categories" :key="index" :to="{name: 'categoria-slug', params: {slug: item.node.slug}}">{{ item.node.name }}</nuxt-link>
+            <nuxt-link class="header__link ml-3 mb-2 mb-lg-none" to="/">Inicio</nuxt-link>
+            <nuxt-link class="header__link ml-3 mb-2 mb-lg-none" v-for="(item, index) in categories" :key="index" :to="{name: 'categoria-slug', params: {slug: item.node.slug}}">{{ item.node.name }}</nuxt-link>
 
             <!--<dropdown
             v-for="(item, index) in categories"
@@ -115,7 +115,15 @@
   }
 
   &__icon {
+    display: inline-block;
     font-size: 1.2em;
+
+    transform: scale(0.95);
+    transition: transform .5s;
+
+    &:hover {
+      transform: scale(0.85);
+    }
   }
 
   &__link {

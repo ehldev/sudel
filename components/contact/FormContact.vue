@@ -213,17 +213,28 @@ export default {
     font-size: 1.5em;
     color: rgba(#070606, .8);
 
-    transition: color .5s;
+    transform: scale(0.9);
+    transition: color .5s, transform .5s;
 
     &:hover {
       color: #070606;
+      transform: scale(0.85);
     }
+
   }
 }
 
 .icon--form-contact {
-  color: $dark;
+  color: rgba($dark, .8);
   font-size: 1.5em;
+
+  transform: scale(0.9);
+  transition: transform .5s;
+
+  &:hover {
+    transform: scale(0.8);
+    color: $dark;
+  }
 }
 
 .group {
