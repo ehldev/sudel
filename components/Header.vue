@@ -21,7 +21,7 @@
               <i class="fab fa-facebook-f"></i>
             </a>
 
-            <a :href="info.whatsapp" target="_blank" class="text-white header__icon">
+            <a :href="`https://api.whatsapp.com/send?phone=+51${info.whatsapp}`" target="_blank" class="text-white header__icon">
               <i class="fab fa-whatsapp"></i>
             </a>
           </div>

@@ -5,7 +5,7 @@
         <div class="row align-items-center">
 
           <div class="col-md-5 col-lg-6 d-flex justify-content-center mb-3 mb-md-0">
-            <img src="https://www.suminperu.com/wp-content/uploads/2020/05/isosumin.png" alt="" class="banner-contact__image">
+            <img src="https://administrador.sudel.com.pe/wp-content/uploads/2020/06/SUDEL-LOGO.png" alt="" class="banner-contact__image">
           </div>
 
           <div class="col-md-7 col-lg-6 text-center text-md-left">
